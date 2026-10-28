@@ -1,0 +1,83 @@
+name: Publications Instagram
+
+# Toutes les heures : récupère les publications Instagram de @gaia_ned,
+# enregistre leurs images dans assets/instagram/, met à jour
+# assets/instagram/posts.js, puis envoie ces fichiers sur le site par FTP
+# (si les accès FTP sont configurés).
+# Même robot que l'e-portfolio (La Lanterne de Yuna). Mise en place : README.md.
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # toutes les heures, à la 17e minute
+  workflow_dispatch:       # bouton "Run workflow" pour lancer à la main
+    inputs:
+      tout_envoyer:
+        description: "Envoyer aussi tout le site sur le serveur (première mise en ligne ou grosse mise à jour)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write          # pour commiter les nouvelles images et la liste
+
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+
+jobs:
+  synchroniser:
+    runs-on: ubuntu-latest
+    env:
+      # Déclarés ici (et pas dans l'étape) pour pouvoir tester leur présence
+      # dans le "if" de l'envoi FTP.
+      FTP_SERVEUR: ${{ secrets.FTP_SERVEUR }}
+      FTP_UTILISATEUR: ${{ secrets.FTP_UTILISATEUR }}
+      FTP_MOT_DE_PASSE: ${{ secrets.FTP_MOT_DE_PASSE }}
+      FTP_DOSSIER: ${{ secrets.FTP_DOSSIER }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Récupérer les publications Instagram
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          INSTAGRAM_TOKEN_KEY: ${{ secrets.INSTAGRAM_TOKEN_KEY }}
+        run: node scripts/instagram-sync.mjs
+
+      - name: Enregistrer les changements dans le dépôt
+        id: commit
+        run: |
+          for f in assets/instagram .github/instagram-token.enc; do
+            [ -e "$f" ] && git add -A "$f"
+          done
+          if git diff --cached --quiet; then
+            echo "Aucun changement."
+            echo "modifie=non" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Met à jour les publications Instagram"
+            git push
+            echo "modifie=oui" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Envoyer tout le site (FTP)
+        # Seulement à la demande (case "tout_envoyer"). Rien n'est supprimé sur le serveur.
+        if: inputs.tout_envoyer && env.FTP_SERVEUR != ''
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "$FTP_UTILISATEUR,$FTP_MOT_DE_PASSE" "$FTP_SERVEUR" -e "
+            set ftp:ssl-allow yes;
+            mirror --reverse --verbose --exclude-glob .git/ --exclude-glob .github/ --exclude-glob scripts/ --exclude-glob .DS_Store --exclude-glob .gitignore --exclude-glob '*.md' --exclude-glob instagram-epingles.json . '${FTP_DOSSIER:-.}';
+            bye"
+
+      - name: Envoyer les publications Instagram (FTP)
+        if: steps.commit.outputs.modifie == 'oui' && !inputs.tout_envoyer && env.FTP_SERVEUR != ''
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "$FTP_UTILISATEUR,$FTP_MOT_DE_PASSE" "$FTP_SERVEUR" -e "
+            set ftp:ssl-allow yes;
+            mirror --reverse --delete --verbose assets/instagram '${FTP_DOSSIER:-.}/assets/instagram';
+            bye"
