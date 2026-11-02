@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18120049454514540.jpg",
+        "lien": "https://www.instagram.com/p/DfO_CmVIs75/",
+        "legende": "Gaïa s'installe aux Portes Ouvertes du CPNV ! 🍑🌴 Viens découvrir notre boisson énergisante naturelle, produite en Suisse, et passe nous voir au stand. 📅 Vendredi 27 novembre, 17h-20h 📅 Samedi 28 n",
+        "type": "image",
+        "date": "2026-11-02T09:28:12+0000"
+    },
+    {
         "image": "assets/instagram/17953390074293195.jpg",
         "lien": "https://www.instagram.com/reel/De9Y8JbIPR0/",
         "legende": "🍑 Gaïa Pêche, l’énergie 100 % naturelle. Une boisson énergisante pensée comme une vraie alternative : de la caféine d’origine végétale (70 mg, issue du guarana), pas de sucres raffinés, pas d’additif",
