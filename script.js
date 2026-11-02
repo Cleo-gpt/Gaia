@@ -233,22 +233,20 @@ document.querySelectorAll(".lang-switch button").forEach((btn) => {
 });
 
 // ---------- En-tête au défilement ----------
-// Le fond orange apparaît dès qu'on quitte le haut de la page d'accueil.
-// Un repère invisible en haut de page est observé (plus fiable dans Safari
-// que l'événement « scroll » seul) ; les autres pages ont toujours le fond.
+// La bande dorée et le petit logo apparaissent une fois la première section quittée.
+// L'observateur est plus fiable dans Safari que l'événement « scroll » seul ;
+// les pages sans première section ont toujours la bande.
 const topbar = document.getElementById("topbar");
-const hasHero = document.querySelector(".hero") !== null;
-function setScrolled(on) {
-  topbar.classList.toggle("scrolled", !hasHero || on);
+const hero = document.querySelector(".hero");
+function updateScrolled() {
+  topbar.classList.toggle("scrolled", !hero || hero.getBoundingClientRect().bottom <= topbar.offsetHeight);
 }
-const sentinel = document.createElement("div");
-sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:40px;pointer-events:none;";
-document.body.prepend(sentinel);
-if ("IntersectionObserver" in window) {
-  new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting)).observe(sentinel);
+if (hero && "IntersectionObserver" in window) {
+  new IntersectionObserver(updateScrolled, { threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }).observe(hero);
 }
-window.addEventListener("scroll", () => setScrolled(window.scrollY > 40), { passive: true });
-setScrolled(window.scrollY > 40);
+window.addEventListener("scroll", updateScrolled, { passive: true });
+window.addEventListener("resize", updateScrolled);
+updateScrolled();
 
 // La barre se cache quand on descend et revient dès qu'on remonte un tout petit peu.
 // Les petits écarts sont cumulés dans le même sens pour ignorer les tremblements.

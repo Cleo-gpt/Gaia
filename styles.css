@@ -16,6 +16,7 @@
   /* Fonds unis (palette de l'équipe) */
   --bg-red: #fd3400;
   --bg-yellow: #ffcd2a;
+  --bg-header: #e8a010;
   --bg-gold: #f9b022;   /* entre l'orange #f3931b et le jaune #ffcd2a de la charte */
   --white: #ffffff;
   --card-text: #2a1a14;
@@ -134,7 +135,7 @@ p { margin: 0; }
 .hero-waves use:nth-child(4) { fill: var(--bg-gold); }
 
 /* Haut du pied de page : rouge, posé sur la section précédente */
-.footer-waves { bottom: 100%; height: clamp(70px, 11vw, 150px); }
+.footer-waves { bottom: calc(100% - 1px); /* recouvre le joint avec le pied de page */ height: clamp(70px, 11vw, 150px); }
 .footer-waves use:nth-child(1) { fill: rgba(253, 52, 0, 0.7); }
 .footer-waves use:nth-child(2) { fill: rgba(253, 52, 0, 0.5); }
 .footer-waves use:nth-child(3) { fill: rgba(253, 52, 0, 0.3); }
@@ -152,10 +153,10 @@ p { margin: 0; }
 .waves-top use:nth-child(2), .waves-bottom use:nth-child(2) { opacity: 0.5; }
 .waves-top use:nth-child(3), .waves-bottom use:nth-child(3) { opacity: 0.3; }
 
-/* Bord bas de la bande du menu : vague dorée (retournée) */
+/* Bord bas de la bande du menu : vague de la même couleur (retournée) */
 .topbar-waves { top: 100%; margin-top: -1px; height: clamp(36px, 5vw, 64px); opacity: 0; transition: opacity 0.25s ease; }
 .topbar-waves svg { transform: scaleY(-1); }
-.topbar-waves use { fill: var(--bg-gold); }
+.topbar-waves use { fill: var(--bg-header); }
 .topbar-waves use:nth-child(1) { opacity: 0.7; }
 .topbar-waves use:nth-child(2) { opacity: 0.5; }
 .topbar-waves use:nth-child(3) { opacity: 0.3; }
@@ -179,7 +180,8 @@ p { margin: 0; }
   transform: translateY(calc(-100% - 72px));
   transition: background 0.25s ease, transform 1s ease-in-out;
 }
-.topbar.scrolled { background: var(--bg-gold); }
+/* Bande dorée seulement après la première section */
+.topbar.scrolled { background: var(--bg-header); }
 .topbar.scrolled .topbar-waves { opacity: 1; }
 .topbar-logo img { height: 52px; width: auto; }
 .topbar:not(.scrolled) .topbar-logo { visibility: hidden; }
