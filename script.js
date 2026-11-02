@@ -48,7 +48,6 @@ const translations = {
     "process.s4.text": "We launched our social media to make Gaïa known, tested several flavours to find the right recipe, and built this website to present the drink and the team.",
     "process.s5.name": "The open days",
     "process.s5.text": "Gaïa is presented and sold at our stand during the CPNV open days in Sainte-Croix, on Friday 27 and Saturday 28 November 2026.",
-    "process.step": "Step",
     "process.s1.name": "The product",
     "process.s1.text": "First of all, we had to find our product: work out what we wanted to create and sell, until we chose a natural peach-flavoured energy drink.",
     "process.s2.name": "The visual identity",
@@ -140,7 +139,6 @@ const translations = {
     "process.s4.text": "Wir haben unsere sozialen Medien gestartet, um Gaïa bekannt zu machen, mehrere Geschmacksrichtungen getestet, um das richtige Rezept zu finden, und diese Website gebaut, um das Getränk und das Team vorzustellen.",
     "process.s5.name": "Die Tage der offenen Tür",
     "process.s5.text": "Gaïa wird an unserem Stand an den Tagen der offenen Tür des CPNV in Sainte-Croix vorgestellt und verkauft, am Freitag, 27., und Samstag, 28. November 2026.",
-    "process.step": "Schritt",
     "process.s1.name": "Das Produkt",
     "process.s1.text": "Zuerst mussten wir unser Produkt finden: herausfinden, was wir herstellen und verkaufen wollten, bis wir uns für einen natürlichen Energydrink mit Pfirsichgeschmack entschieden haben.",
     "process.s2.name": "Das Erscheinungsbild",
@@ -233,11 +231,10 @@ document.querySelectorAll(".lang-switch button").forEach((btn) => {
 });
 
 // ---------- En-tête au défilement ----------
-// La bande dorée et le petit logo apparaissent une fois la première section quittée.
-// L'observateur est plus fiable dans Safari que l'événement « scroll » seul ;
-// les pages sans première section ont toujours la bande.
+// La bande et le petit logo apparaissent une fois la première section de la page quittée.
+// L'observateur est plus fiable dans Safari que l'événement « scroll » seul.
 const topbar = document.getElementById("topbar");
-const hero = document.querySelector(".hero");
+const hero = document.querySelector(".hero, .page-head");
 function updateScrolled() {
   topbar.classList.toggle("scrolled", !hero || hero.getBoundingClientRect().bottom <= topbar.offsetHeight);
 }
@@ -390,10 +387,36 @@ if (allButton) allButton.addEventListener("click", () => {
   showIngredients(allOpen ? [] : cards);
 });
 
+// ---------- Bouteilles 3D ----------
+// Une scène 3D n'est créée qu'à sa première apparition, et s'arrête hors de l'écran :
+// plusieurs bouteilles qui tournent en continu ralentiraient la page.
+if (window.GaiaBottle && "IntersectionObserver" in window) {
+  const bottles = new Map();
+  const bottleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      const bottle = bottles.get(target);
+      if (!isIntersecting) { if (bottle) bottle.pause(); return; }
+      if (bottle) { bottle.resume(); return; }
+      try {
+        const lying = target.dataset.rest === "horizontal"; // couchée : tourne seule, sans ombre au sol
+        bottles.set(target, GaiaBottle.mount(target, {
+          zoom: Number(target.dataset.zoom) || 1,
+          rest: lying ? -Math.PI / 2 : 0,
+          shadow: !lying,
+          interactive: !lying,
+        }));
+      } catch (err) {
+        bottleObserver.unobserve(target); // pas de WebGL : l'emplacement reste vide
+      }
+    });
+  }, { rootMargin: "100px" });
+  document.querySelectorAll("[data-bottle]").forEach((el) => bottleObserver.observe(el));
+}
+
 // ---------- Apparition au défilement ----------
 const revealTargets = document.querySelectorAll(
   ".hero-text > *, .section-title, .ing-card, .ing-all, .faq-item, .faq-contact, " +
-  ".page-head p, .step-head > :not(.waves), .step-text p, .team-intro, .team-nav li, .person-grid"
+  ".page-head p, .step-media, .step-body > *, .team-intro, .team-nav li, .person-grid"
 );
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

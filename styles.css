@@ -54,7 +54,7 @@ p { margin: 0; }
 /* Les lettres de Caveat dépassent de leur boîte : sans cette marge, Safari
    les coupe pendant l'animation d'apparition. */
 .script { padding: 0.06em 0.3em 0.1em 0; }
-.step-head .script, .popup-qr .script, .center .script { padding-left: 0.3em; }
+.popup-qr .script, .center .script { padding-left: 0.3em; }
 .lead { font-size: clamp(1.15rem, 2vw, 1.5rem); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -93,7 +93,14 @@ p { margin: 0; }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18); }
 .btn-big { font-family: var(--font-title); font-size: clamp(1.3rem, 3vw, 2.2rem); padding: 0.55em 1.2em; }
 
-/* Emplacements à remplacer (bouteille, mascotte) */
+/* Bouteille 3D : la scène prend la taille du bloc, assez large pour la pencher sans la couper */
+.bottle-3d { position: relative; z-index: 3; justify-self: center; width: 100%; }
+.bottle-hero { max-width: 460px; height: min(640px, 78vh); }
+.bottle-faq { max-width: 380px; height: 520px; }
+.bottle-menu { max-width: 420px; height: min(560px, 62vh); }
+.bottle-footer { max-width: 300px; height: 170px; }
+
+/* Emplacements à remplacer (mascotte) */
 .placeholder {
   display: grid;
   place-items: center;
@@ -105,12 +112,8 @@ p { margin: 0; }
   opacity: 0.9;
 }
 .placeholder span { writing-mode: vertical-rl; transform: rotate(180deg); }
-.placeholder-bottle { width: min(300px, 70vw); aspect-ratio: 5 / 9; justify-self: center; }
 .placeholder-mascot { width: 200px; aspect-ratio: 2 / 3; }
-.placeholder-faq { width: 100%; max-width: 360px; aspect-ratio: 2 / 3; font-size: 2rem; }
 .placeholder-small { width: 120px; aspect-ratio: 1 / 2; font-size: 1.1rem; }
-.placeholder-wide { width: 100%; max-width: 360px; height: 130px; font-size: 1.6rem; }
-.placeholder-wide span { writing-mode: horizontal-tb; transform: none; }
 
 /* ---------- Vagues animées ---------- */
 /* Quatre couches de la même vague, plus ou moins transparentes,
@@ -312,23 +315,47 @@ p { margin: 0; }
 .page-head { padding: 140px 0 40px; background: var(--bg-gold); }
 .page-head .section-title { margin-bottom: 0.6rem; }
 .page-head p { max-width: 46ch; margin-inline: auto; font-size: 1.3rem; }
-.step-head {
+/* Une étape : image à gauche qui s'estompe vers le texte à droite */
+.step {
   position: relative;
-  display: grid; justify-items: center; align-content: center; gap: 6px;
-  min-height: 360px; padding: 120px var(--gutter);
-  background: var(--bg-gold); text-align: center;
+  display: grid; grid-template-columns: 7fr 3fr; align-items: center;
+  min-height: clamp(420px, 42vw, 620px);
+  background: var(--bg-gold);
 }
-.step-head > :not(.waves) { position: relative; z-index: 2; }
-.step-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
-.step-icon {
-  display: grid; place-items: center;
-  width: 104px; height: 104px; padding: 20px; margin-bottom: 8px;
-  border: 3px solid var(--white); border-radius: 50%;
-  color: var(--white);
-  --icon-fill: rgba(255, 255, 255, 0.28);
+.step-red { background: var(--bg-red); }
+.step-media { position: relative; align-self: stretch; }
+.step-media img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  /* Fondu vers le texte, et vers le bas pour rejoindre la vague suivante sans coupure.
+     Le haut reste net : il passe sous la vague de la section. */
+  -webkit-mask-image: linear-gradient(to right, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
-.step-text { background: var(--bg-red); padding: 50px var(--gutter); }
-.step-text p { width: min(640px, 100%); margin-inline: auto; font-size: 1.3rem; }
+.step-media span {
+  position: absolute; top: 50%; left: 35%; translate: -50% -50%;
+  font-family: var(--font-title); font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+.step-body { padding: clamp(70px, 8vw, 120px) clamp(20px, 3vw, 48px) clamp(70px, 8vw, 120px) clamp(12px, 1.5vw, 24px); }
+.step-body h2 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: clamp(1.5rem, 2.3vw, 2.4rem); }
+/* Une étape sur deux : texte à gauche, image à droite */
+.step-red { grid-template-columns: 3fr 7fr; }
+.step-red .step-media { order: 2; }
+.step-red .step-media img {
+  -webkit-mask-image: linear-gradient(to left, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
+}
+.step-red .step-media span { left: 65%; }
+.step-red .step-body { padding-left: clamp(20px, 3vw, 48px); padding-right: clamp(12px, 1.5vw, 24px); }
+.step-num {
+  display: grid; place-items: center; flex-shrink: 0;
+  width: 1.5em; height: 1.5em;
+  border: 3px solid currentColor; border-radius: 50%;
+  font-size: 0.8em;
+}
+.step-body p { max-width: 34em; font-size: clamp(1.05rem, 1.4vw, 1.3rem); }
 
 /* ---------- FAQ ---------- */
 #faq { position: relative; padding: 150px 0 170px; }
@@ -509,9 +536,25 @@ p { margin: 0; }
 @media (max-width: 900px) {
   .hero-grid, .faq-grid, .menu-grid, .popup-grid, .footer-inner { grid-template-columns: 1fr; }
   .hero .lead { margin-bottom: 36px; }
-  .placeholder-faq { aspect-ratio: 3 / 2; max-width: none; }
-  .placeholder-faq span { writing-mode: horizontal-tb; transform: none; }
-  .menu-grid .placeholder { display: none; }
+  .bottle-hero { height: 440px; }
+  .bottle-faq { height: 400px; }
+  .menu-grid .bottle-3d { display: none; }
+  .step { grid-template-columns: 1fr; }
+  .step-media { height: 280px; }
+  .step-media img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+  .step-media span { left: 50%; top: 40%; }
+  .step-body { padding: 20px var(--gutter) 90px; }
+  .step-red { grid-template-columns: 1fr; }
+  .step-red .step-media { order: 0; }
+  .step-red .step-media img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+  .step-red .step-media span { left: 50%; }
+  .step-red .step-body { padding: 20px var(--gutter) 90px; }
   .footer-art { display: none; }
   .person-grid, .person:nth-of-type(odd) .person-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .person:nth-of-type(odd) .person-photo { order: 0; }

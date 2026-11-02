@@ -1,0 +1,10 @@
+{
+  "name": "gaia-bottle",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild gaia-bottle.src.js --bundle --minify --format=iife --global-name=GaiaBottle --loader:.jpg=dataurl --legal-comments=none --outfile=../gaia-bottle.js"
+  },
+  "dependencies": { "three": "0.170.0" },
+  "devDependencies": { "esbuild": "0.24.0" }
+}
