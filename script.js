@@ -25,17 +25,17 @@ const translations = {
     "ing.more": "Read more",
     "ing.less": "Read less",
     "ing.water.name": "Sparkling water",
-    "ing.water.text": "Carbonated water, more commonly called sparkling or fizzy water, is water that contains dissolved carbon dioxide (CO₂).",
+    "ing.water.text": "It is the base of Gaïa. Its fine bubbles make the drink fizzy and refreshing, just as you expect from an energy drink.",
     "ing.syrup.name": "Peach syrup",
-    "ing.syrup.text": "Peach syrup is a versatile product used in cooking and drinks, but its impact on health mainly depends on how it is made and how much sugar it contains.",
+    "ing.syrup.text": "It brings the fruity taste of peach, the main flavour of Gaïa, and part of its sweetness.",
     "ing.sugar.name": "Sugar",
-    "ing.sugar.text": "Sugar usually means sucrose, a sweet-tasting carbohydrate extracted mainly from sugar cane or sugar beet. Nutritionally and chemically, it belongs to the family of simple carbohydrates.",
+    "ing.sugar.text": "It sweetens the drink and balances the acidity of the lemon. It also gives a little quick energy, on top of the caffeine from the guarana.",
     "ing.lemon.name": "Lemon juice",
-    "ing.lemon.text": "Lemon juice is an acidic, versatile ingredient, used in cooking as well as for health or household cleaning.",
+    "ing.lemon.text": "Its acidity brings out the peach taste and makes Gaïa fresher and lighter in the mouth. It also helps the drink keep better.",
     "ing.guarana.name": "Guarana",
-    "ing.guarana.text": "Guarana (Paullinia cupana) is a climbing plant native to the Amazon basin, especially widespread in Brazil. It is known worldwide for its seeds, which have an exceptionally high caffeine content.",
+    "ing.guarana.text": "It is Gaïa's source of energy. Its seeds naturally contain caffeine: our energy comes from a plant, not from synthetic caffeine.",
     "ing.aroma.name": "Peach flavour",
-    "ing.aroma.text": "Peach flavouring is a magic ingredient that gives the subtle, fruity taste of peach to your pastries, creams or drinks, without changing their texture the way real fruit (which can be too watery) sometimes does.",
+    "ing.aroma.text": "It strengthens the peach scent so that its taste stays clearly present, even with the bubbles and the lemon.",
     "ing.allHint": "Tap here to see them all",
     "ing.all": "All categories",
     "ing.allClose": "Hide all",
@@ -74,13 +74,6 @@ const translations = {
     "insta.title": "Follow us on Instagram",
     "insta.text": "Behind the scenes of the project, our tests and Gaïa news.",
     "insta.cta": "See the account",
-    "law.title": "Swiss law on the drink",
-    "law.p1": "In Switzerland, drinks containing caffeine are regulated by the FDHA Ordinance on Beverages (SR 817.022.12).",
-    "law.li1": "The caffeine content must not exceed a maximum value set by law.",
-    "law.li2": "A drink with a high caffeine content must carry a warning on its label, stating the amount of caffeine.",
-    "law.li3": "The label must also list the ingredients, the quantity and the best-before date.",
-    "law.p2": "We are checking our recipe and our label against these rules.",
-    "law.link": "Read the FSVO explanations (PDF, in French)",
 
     "team.title": "Our team",
     "team.intro": "We are five apprentices at CPNV in Sainte-Croix. Gaïa is our project: from the recipe to the label, we make everything ourselves.",
@@ -96,15 +89,10 @@ const translations = {
     "team.cleo.text": "I'm Cléo Forclaz, a third-year mediamatics student at CPNV in Sainte-Croix. Outside of my studies, I'm an illustrator, photographer and video editor. I'm persevering, creative and quick-witted. On the Gaïa project, I'm the webmaster and in charge of social media.",
 
     "nav.ingredients": "The ingredients",
-    "nav.process": "The process",
-    "nav.team": "Our team",
-    "nav.law": "Swiss law on the drink",
+    "nav.project": "The process and the team",
 
     "footer.chapters": "Site sections",
     "footer.drink": "The drink",
-    "footer.prep": "The project process",
-    "footer.law": "Swiss law on the drink",
-    "footer.scan": "Scan me to follow us!",
     "footer.legal": "Legal notice",
     "footer.terms": "Terms of use",
     "footer.privacy": "Privacy policy",
@@ -127,17 +115,17 @@ const translations = {
     "ing.more": "Mehr lesen",
     "ing.less": "Weniger lesen",
     "ing.water.name": "Kohlensäure­haltiges Wasser",
-    "ing.water.text": "Kohlensäurehaltiges Wasser, auch Sprudel- oder Mineralwasser mit Kohlensäure genannt, ist Wasser, in dem Kohlendioxid (CO₂) gelöst ist.",
+    "ing.water.text": "Es ist die Grundlage von Gaïa. Seine feinen Bläschen machen das Getränk prickelnd und erfrischend, wie man es von einem Energydrink erwartet.",
     "ing.syrup.name": "Pfirsich­sirup",
-    "ing.syrup.text": "Pfirsichsirup ist ein vielseitiges Produkt für Küche und Getränke. Seine Wirkung auf die Gesundheit hängt vor allem von der Herstellung und vom Zuckergehalt ab.",
+    "ing.syrup.text": "Er bringt den fruchtigen Pfirsichgeschmack, das Hauptaroma von Gaïa, und einen Teil seiner Süsse.",
     "ing.sugar.name": "Zucker",
-    "ing.sugar.text": "Mit Zucker ist meist Saccharose gemeint, ein süss schmeckendes Kohlenhydrat, das hauptsächlich aus Zuckerrohr oder Zuckerrüben gewonnen wird. Ernährungsphysiologisch und chemisch gehört er zu den einfachen Kohlenhydraten.",
+    "ing.sugar.text": "Er süsst das Getränk und gleicht die Säure der Zitrone aus. Ausserdem liefert er etwas schnelle Energie, zusätzlich zum Koffein aus dem Guarana.",
     "ing.lemon.name": "Zitronen­saft",
-    "ing.lemon.text": "Zitronensaft ist eine saure, vielseitige Zutat, die in der Küche ebenso verwendet wird wie für die Gesundheit oder im Haushalt.",
+    "ing.lemon.text": "Seine Säure hebt den Pfirsichgeschmack hervor und macht Gaïa frischer und leichter im Mund. Ausserdem hilft er, das Getränk besser haltbar zu machen.",
     "ing.guarana.name": "Guarana",
-    "ing.guarana.text": "Guarana (Paullinia cupana) ist eine Kletterpflanze aus dem Amazonasbecken, die besonders in Brasilien verbreitet ist. Weltweit bekannt ist sie für ihre Samen, die außergewöhnlich viel Koffein enthalten.",
+    "ing.guarana.text": "Es ist die Energiequelle von Gaïa. Seine Samen enthalten von Natur aus Koffein: Unsere Energie kommt aus einer Pflanze, nicht aus synthetischem Koffein.",
     "ing.aroma.name": "Pfirsich­aroma",
-    "ing.aroma.text": "Pfirsicharoma ist eine magische Zutat, die Gebäck, Cremes oder Getränken den feinen, fruchtigen Geschmack von Pfirsich verleiht, ohne die Konsistenz zu verändern, wie es echte Früchte (die manchmal zu viel Wasser abgeben) tun.",
+    "ing.aroma.text": "Es verstärkt den Pfirsichduft, damit sein Geschmack auch neben den Bläschen und der Zitrone deutlich bleibt.",
     "ing.allHint": "Hier tippen, um alle zu sehen",
     "ing.all": "Alle Kategorien",
     "ing.allClose": "Alle schliessen",
@@ -176,13 +164,6 @@ const translations = {
     "insta.title": "Folge uns auf Instagram",
     "insta.text": "Hinter den Kulissen des Projekts, unsere Tests und Neuigkeiten von Gaïa.",
     "insta.cta": "Zum Account",
-    "law.title": "Das Schweizer Gesetz zum Getränk",
-    "law.p1": "In der Schweiz sind koffeinhaltige Getränke in der Verordnung des EDI über Getränke (SR 817.022.12) geregelt.",
-    "law.li1": "Der Koffeingehalt darf einen gesetzlich festgelegten Höchstwert nicht überschreiten.",
-    "law.li2": "Ein Getränk mit hohem Koffeingehalt muss auf dem Etikett einen Warnhinweis mit der Koffeinmenge tragen.",
-    "law.li3": "Das Etikett muss ausserdem die Zutaten, die Menge und das Mindesthaltbarkeitsdatum angeben.",
-    "law.p2": "Wir prüfen unser Rezept und unser Etikett anhand dieser Regeln.",
-    "law.link": "Erläuterungen des BLV lesen (PDF, auf Französisch)",
 
     "team.title": "Unser Team",
     "team.intro": "Wir sind fünf Lernende des CPNV in Sainte-Croix. Gaïa ist unser Projekt: vom Rezept bis zum Etikett machen wir alles selbst.",
@@ -198,15 +179,10 @@ const translations = {
     "team.cleo.text": "Ich bin Cléo Forclaz und im dritten Jahr der Mediamatik-Ausbildung am CPNV in Sainte-Croix. Neben meiner Ausbildung bin ich Illustratorin, Fotografin und Videoeditorin. Ich bin ausdauernd, kreativ und schlagfertig. Im Projekt Gaïa bin ich Webmasterin und für die sozialen Medien verantwortlich.",
 
     "nav.ingredients": "Die Zutaten",
-    "nav.process": "Der Prozess",
-    "nav.team": "Unser Team",
-    "nav.law": "Schweizer Gesetz zum Getränk",
+    "nav.project": "Der Prozess und das Team",
 
     "footer.chapters": "Bereiche der Website",
     "footer.drink": "Das Getränk",
-    "footer.prep": "Der Projektprozess",
-    "footer.law": "Gesetz zum Getränk in der Schweiz",
-    "footer.scan": "Scan mich, um uns zu folgen!",
     "footer.legal": "Impressum",
     "footer.terms": "AGB",
     "footer.privacy": "Datenschutz",
@@ -278,6 +254,7 @@ let lastFocus = null;
 
 function openOverlay(el) {
   lastFocus = document.activeElement;
+  el.classList.remove("is-closing");
   el.hidden = false;
   document.body.style.overflow = "hidden";
   if (el === menu) burger.setAttribute("aria-expanded", "true");
@@ -286,7 +263,20 @@ function openOverlay(el) {
 }
 
 function closeOverlay(el) {
-  el.hidden = true;
+  if (el.hidden || el.classList.contains("is-closing")) return;
+  // Le menu repart sur le côté avant d'être caché
+  if (el === menu && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    el.classList.add("is-closing");
+    el.addEventListener("animationend", function done(e) {
+      if (e.target !== el) return; // animation d'un lien, pas du menu
+      el.removeEventListener("animationend", done);
+      if (!el.classList.contains("is-closing")) return; // rouvert entre-temps
+      el.classList.remove("is-closing");
+      el.hidden = true;
+    });
+  } else {
+    el.hidden = true;
+  }
   document.body.style.overflow = "";
   if (el === menu) burger.setAttribute("aria-expanded", "false");
   if (lastFocus) lastFocus.focus();
@@ -320,36 +310,68 @@ if (popup && !session.get("gaia-popup-seen")) {
 }
 
 // ---------- Cartes ingrédients ----------
-const cards = document.querySelectorAll(".ing-card");
+// « Lire plus » n'ouvre plus la carte elle-même : le texte s'affiche en grand
+// dans un panneau sous la rangée de cartes. Les éléments sont clonés avec leur
+// data-i18n, donc setLang les traduit aussi.
+const cards = [...document.querySelectorAll(".ing-card")];
 const allButton = document.getElementById("ingAll");
+const ingPanel = document.getElementById("ingPanel");
+const ingContent = ingPanel ? ingPanel.querySelector(".ing-panel-content") : null;
 
-function setCard(card, open) {
-  card.classList.toggle("open", open);
-  card.querySelector(".ing-toggle").setAttribute("aria-expanded", String(open));
+function ingEntry(card) {
+  const entry = document.createElement("div");
+  entry.className = "ing-entry";
+  entry.append(
+    card.querySelector(".ing-icon").cloneNode(true),
+    Object.assign(document.createElement("div"), { className: "ing-entry-text" })
+  );
+  entry.lastChild.append(card.querySelector("h3").cloneNode(true), card.querySelector(".ing-body p").cloneNode(true));
+  return entry;
+}
+
+function showIngredients(selected) {
+  cards.forEach((c) => {
+    const open = selected.length === 1 && selected[0] === c;
+    c.classList.toggle("open", open);
+    c.querySelector(".ing-toggle").setAttribute("aria-expanded", String(open));
+  });
+  if (!selected.length) {
+    ingPanel.hidden = true;
+  } else {
+    ingContent.replaceChildren(...selected.map(ingEntry));
+    ingPanel.classList.toggle("all", selected.length > 1);
+    ingPanel.hidden = false;
+    // relance l'animation d'apparition à chaque changement
+    ingPanel.classList.remove("swap");
+    void ingPanel.offsetWidth;
+    ingPanel.classList.add("swap");
+    ingPanel.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest" });
+  }
+  updateAllButton();
 }
 
 function updateAllButton() {
   if (!allButton) return;
-  const allOpen = [...cards].every((c) => c.classList.contains("open"));
+  const allOpen = ingPanel && !ingPanel.hidden && ingPanel.classList.contains("all");
   allButton.textContent = allOpen ? t("ing.allClose") : t("ing.all");
 }
 
 cards.forEach((card) => {
   card.querySelector(".ing-toggle").addEventListener("click", () => {
-    setCard(card, !card.classList.contains("open"));
-    updateAllButton();
+    showIngredients(card.classList.contains("open") ? [] : [card]);
   });
 });
 
+if (ingPanel) ingPanel.querySelector(".ing-panel-close").addEventListener("click", () => showIngredients([]));
+
 if (allButton) allButton.addEventListener("click", () => {
-  const allOpen = [...cards].every((c) => c.classList.contains("open"));
-  cards.forEach((c) => setCard(c, !allOpen));
-  updateAllButton();
+  const allOpen = !ingPanel.hidden && ingPanel.classList.contains("all");
+  showIngredients(allOpen ? [] : cards);
 });
 
 // ---------- Apparition au défilement ----------
 const revealTargets = document.querySelectorAll(
-  ".hero-text > *, .section-title, .ing-card, .ing-all, .faq-item, .faq-contact, .law-card, " +
+  ".hero-text > *, .section-title, .ing-card, .ing-all, .faq-item, .faq-contact, " +
   ".page-head p, .step-head > :not(.waves), .step-text p, .team-intro, .team-nav li, .person-grid"
 );
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

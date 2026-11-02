@@ -15,8 +15,8 @@
 
   /* Fonds unis (palette de l'équipe) */
   --bg-red: #fd3400;
-  --bg-orange: #f3931b;
   --bg-yellow: #ffcd2a;
+  --bg-gold: #f9b022;   /* entre l'orange #f3931b et le jaune #ffcd2a de la charte */
   --white: #ffffff;
   --card-text: #2a1a14;
 
@@ -61,7 +61,7 @@ p { margin: 0; }
 
 /* Fond texture pêche */
 .textured { background: url("assets/img/texture-peche.jpg") center / cover no-repeat, var(--red); }
-.sand { background: var(--bg-orange); }
+.sand { background: var(--bg-gold); }
 
 /* Texture fixe derrière une longue zone (équipe) : l'image garde la taille
    de l'écran au lieu d'être étirée sur toute la hauteur, donc elle reste nette.
@@ -126,12 +126,12 @@ p { margin: 0; }
   100% { transform: translate3d(85px, 0, 0); }
 }
 
-/* Bas de l'accueil : crème puis orange, vers la section ingrédients */
+/* Bas de l'accueil : crème puis doré, vers la section ingrédients */
 .hero-waves { bottom: 0; height: clamp(70px, 11vw, 150px); }
 .hero-waves use:nth-child(1) { fill: rgba(255, 205, 42, 0.7); }
 .hero-waves use:nth-child(2) { fill: rgba(255, 205, 42, 0.5); }
-.hero-waves use:nth-child(3) { fill: rgba(243, 147, 27, 0.6); }
-.hero-waves use:nth-child(4) { fill: var(--bg-orange); }
+.hero-waves use:nth-child(3) { fill: rgba(249, 176, 34, 0.6); }
+.hero-waves use:nth-child(4) { fill: var(--bg-gold); }
 
 /* Haut du pied de page : rouge, posé sur la section précédente */
 .footer-waves { bottom: 100%; height: clamp(70px, 11vw, 150px); }
@@ -142,7 +142,7 @@ p { margin: 0; }
 
 /* Séparateurs entre deux sections : la couleur est celle de la section voisine.
    .waves-bottom monte depuis le bas, .waves-top descend depuis le haut. */
-.waves-top, .waves-bottom { --wave-color: var(--bg-orange); height: clamp(50px, 8vw, 110px); z-index: 1; }
+.waves-top, .waves-bottom { --wave-color: var(--bg-gold); height: clamp(50px, 8vw, 110px); z-index: 1; }
 .waves-top { top: -1px; }
 .waves-top svg { transform: scaleY(-1); }
 .waves-bottom { bottom: -1px; }
@@ -173,7 +173,7 @@ p { margin: 0; }
   padding: 22px var(--gutter) 12px;
   transition: background 0.25s ease, box-shadow 0.25s ease;
 }
-.topbar.scrolled { background: var(--bg-orange); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
+.topbar.scrolled { background: var(--bg-gold); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
 .topbar.scrolled .topbar-waves { opacity: 1; }
 .topbar-logo img { height: 52px; width: auto; }
 .topbar:not(.scrolled) .topbar-logo { visibility: hidden; }
@@ -239,14 +239,49 @@ p { margin: 0; }
   transition: transform 0.3s ease;
 }
 .ing-card:hover .ing-icon { transform: rotate(-6deg) scale(1.06); }
-.ing-body {
-  display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
-  text-align: left; font-size: 1.05rem;
+.ing-body { display: none; } /* texte lu dans le panneau */
+/* « translate » et pas « transform », que l'apparition au défilement utilise déjà */
+.ing-card { transition: translate 0.25s ease, box-shadow 0.25s ease; }
+.ing-card.open { translate: 0 -6px; box-shadow: 0 0 0 4px var(--red), 0 14px 30px rgba(120, 40, 0, 0.25); }
+
+/* Panneau de lecture sous les cartes */
+.ing-panel {
+  position: relative;
+  margin-top: 26px;
+  padding: clamp(28px, 4vw, 48px) clamp(22px, 5vw, 64px);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--card-text);
 }
-.ing-body > p { overflow: hidden; }
-.ing-card.open .ing-body { grid-template-rows: 1fr; }
-.ing-card.open .ing-body > p { padding: 6px 4px 14px; }
+.ing-panel.swap .ing-entry { animation: ing-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+.ing-panel.swap .ing-entry:nth-child(2) { animation-delay: 0.05s; }
+.ing-panel.swap .ing-entry:nth-child(3) { animation-delay: 0.1s; }
+.ing-panel.swap .ing-entry:nth-child(4) { animation-delay: 0.15s; }
+.ing-panel.swap .ing-entry:nth-child(5) { animation-delay: 0.2s; }
+.ing-panel.swap .ing-entry:nth-child(6) { animation-delay: 0.25s; }
+@keyframes ing-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.ing-panel-close {
+  position: absolute; top: 16px; right: 16px;
+  display: grid; place-items: center;
+  width: 44px; height: 44px; border: 0; border-radius: 50%;
+  background: #fdf1e3; color: var(--red);
+  cursor: pointer;
+}
+.ing-panel-close .icon-x { width: 20px; height: 20px; }
+.ing-panel-content { display: grid; gap: 36px; }
+.ing-panel.all .ing-panel-content { grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 36px 48px; }
+.ing-entry { display: grid; grid-template-columns: auto 1fr; gap: clamp(20px, 4vw, 44px); align-items: center; }
+.ing-entry .ing-icon { width: 150px; height: 150px; margin: 0; padding: 28px; }
+.ing-panel.all .ing-entry { align-items: start; }
+.ing-panel.all .ing-entry .ing-icon { width: 96px; height: 96px; padding: 18px; }
+.ing-entry h3 { color: var(--red); font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 10px; padding-right: 40px; }
+.ing-panel.all .ing-entry h3 { font-size: 1.6rem; padding-right: 0; }
+.ing-entry p { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.55; max-width: 62ch; }
+.ing-panel.all .ing-entry p { font-size: 1.1rem; }
+@media (max-width: 560px) {
+  .ing-entry { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .ing-entry .ing-icon { width: 100px; height: 100px; padding: 20px; }
+}
 .ing-toggle {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   width: 100%; max-width: 170px;
@@ -267,14 +302,14 @@ p { margin: 0; }
 .ing-all p { font-size: 1.4rem; margin-bottom: 16px; }
 
 /* ---------- Page processus ---------- */
-.page-head { padding: 140px 0 40px; background: var(--bg-orange); }
+.page-head { padding: 140px 0 40px; background: var(--bg-gold); }
 .page-head .section-title { margin-bottom: 0.6rem; }
 .page-head p { max-width: 46ch; margin-inline: auto; font-size: 1.3rem; }
 .step-head {
   position: relative;
   display: grid; justify-items: center; align-content: center; gap: 6px;
   min-height: 360px; padding: 120px var(--gutter);
-  background: var(--bg-orange); text-align: center;
+  background: var(--bg-gold); text-align: center;
 }
 .step-head > :not(.waves) { position: relative; z-index: 2; }
 .step-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); }
@@ -307,11 +342,8 @@ p { margin: 0; }
 .faq-item p { padding: 0 36px 28px; font-size: 1.15rem; }
 .faq-contact { text-align: center; font-size: 1.4rem; margin-top: 30px; }
 
-/* ---------- Loi ---------- */
-#loi { padding: 90px 0 90px; }
-
 /* ---------- Instagram ---------- */
-#instagram { position: relative; padding: 150px 0 190px; }
+#instagram { position: relative; padding: 90px 0 190px; }
 .insta-intro { max-width: 46ch; margin: -0.8rem auto 40px; text-align: center; font-size: 1.3rem; }
 .insta-intro a { font-weight: 700; text-decoration: none; }
 /* Posts centrés : la grille reste équilibrée même avec peu de posts */
@@ -340,11 +372,6 @@ p { margin: 0; }
   .gaia-posts.insta-grille { --ig-espace: 8px; --ig-arrondi: 10px; }
   #instagram .insta-grille__cadre { --ig-barre-largeur: 26px; --ig-curseur-taille: 26px; }
 }
-.law-card { background: var(--white); color: var(--card-text); border-radius: var(--radius); padding: clamp(24px, 5vw, 48px); }
-.law-card p, .law-card li { font-size: 1.2rem; }
-.law-card ul { margin: 18px 0; padding-left: 1.2em; display: grid; gap: 8px; }
-.law-card li::marker { color: var(--red); }
-.law-card .btn { margin-top: 22px; background: var(--red); color: var(--white); }
 
 /* ---------- Page équipe ---------- */
 .team-head { position: relative; padding: 170px 0 90px; }
@@ -397,12 +424,7 @@ p { margin: 0; }
 .footer-col p { font-size: 1.35rem; }
 .footer-mail { display: inline-flex; align-items: center; gap: 10px; }
 .footer-mail .icon { width: 26px; height: 26px; flex-shrink: 0; stroke-width: 2; }
-.footer-qr { display: grid; justify-items: start; gap: 12px; margin-top: 22px; }
-.qr { display: grid; justify-items: center; gap: 6px; text-decoration: none; }
-.qr img { width: 220px; }
-.qr span { font-family: "Arial Narrow", sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 0.02em; }
-.footer-qr .script { font-size: 2rem; }
-.footer-logo { width: min(240px, 100%); margin-top: 34px; }
+.footer-logo { width: 130px; height: auto; }
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap;
   padding: 20px 0 28px;
@@ -422,6 +444,19 @@ p { margin: 0; }
 }
 .overlay[hidden] { display: none; }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Le menu glisse depuis la droite (côté du bouton) et y repart */
+#menu { animation: menu-in 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+#menu.is-closing { animation: menu-out 0.6s cubic-bezier(0.55, 0, 0.75, 0.2) forwards; }
+@keyframes menu-in { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes menu-out { from { transform: none; } to { transform: translateX(100%); } }
+#menu .menu-links a { animation: menu-link 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+#menu .menu-links a:nth-child(2) { animation-delay: 0.1s; }
+#menu .menu-links a:nth-child(3) { animation-delay: 0.2s; }
+#menu .menu-links a:nth-child(4) { animation-delay: 0.3s; }
+#menu .menu-links a:nth-child(5) { animation-delay: 0.4s; }
+#menu .menu-links a:nth-child(6) { animation-delay: 0.5s; }
+@keyframes menu-link { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: none; } }
 .overlay-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 .overlay-logo { height: 70px; width: auto; }
 .close {
