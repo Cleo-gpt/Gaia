@@ -161,9 +161,9 @@ p { margin: 0; }
 .topbar-waves use:nth-child(4) { fill: var(--bg-yellow); }
 
 /* ---------- En-tête ---------- */
-/* Le header reste en haut de la page : il défile avec le contenu. */
+/* Fixe en haut de l'écran : caché quand on descend, de retour quand on remonte. */
 .topbar {
-  position: absolute;
+  position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
   display: flex;
@@ -171,7 +171,13 @@ p { margin: 0; }
   justify-content: space-between;
   gap: 12px;
   padding: 22px var(--gutter) 12px;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  /* Réapparition lente quand on remonte */
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 1s ease-in-out;
+}
+/* Disparition quand on descend (24px de plus pour cacher aussi l'ombre) */
+.topbar.is-hidden {
+  transform: translateY(calc(-100% - 24px));
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 1s ease-in-out;
 }
 .topbar.scrolled { background: var(--bg-gold); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
 .topbar.scrolled .topbar-waves { opacity: 1; }

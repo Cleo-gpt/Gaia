@@ -27,7 +27,7 @@ const translations = {
     "ing.water.name": "Sparkling water",
     "ing.water.text": "It is the base of Gaïa. Its fine bubbles make the drink fizzy and refreshing, just as you expect from an energy drink.",
     "ing.syrup.name": "Peach syrup",
-    "ing.syrup.text": "It brings the fruity taste of peach, the main flavour of Gaïa, and part of its sweetness.",
+    "ing.syrup.text": "It gives Gaïa most of its peach taste. It also brings part of its sweetness.",
     "ing.sugar.name": "Sugar",
     "ing.sugar.text": "It sweetens the drink and balances the acidity of the lemon. It also gives a little quick energy, on top of the caffeine from the guarana.",
     "ing.lemon.name": "Lemon juice",
@@ -35,7 +35,7 @@ const translations = {
     "ing.guarana.name": "Guarana",
     "ing.guarana.text": "It is Gaïa's source of energy. Its seeds naturally contain caffeine: our energy comes from a plant, not from synthetic caffeine.",
     "ing.aroma.name": "Peach flavour",
-    "ing.aroma.text": "It strengthens the peach scent so that its taste stays clearly present, even with the bubbles and the lemon.",
+    "ing.aroma.text": "It adds a touch of scent to the syrup, so that the peach comes through well, even with the bubbles and the lemon.",
     "ing.allHint": "Tap here to see them all",
     "ing.all": "All categories",
     "ing.allClose": "Hide all",
@@ -117,7 +117,7 @@ const translations = {
     "ing.water.name": "Kohlensäure­haltiges Wasser",
     "ing.water.text": "Es ist die Grundlage von Gaïa. Seine feinen Bläschen machen das Getränk prickelnd und erfrischend, wie man es von einem Energydrink erwartet.",
     "ing.syrup.name": "Pfirsich­sirup",
-    "ing.syrup.text": "Er bringt den fruchtigen Pfirsichgeschmack, das Hauptaroma von Gaïa, und einen Teil seiner Süsse.",
+    "ing.syrup.text": "Er gibt Gaïa den grössten Teil seines Pfirsichgeschmacks. Ausserdem bringt er einen Teil seiner Süsse.",
     "ing.sugar.name": "Zucker",
     "ing.sugar.text": "Er süsst das Getränk und gleicht die Säure der Zitrone aus. Ausserdem liefert er etwas schnelle Energie, zusätzlich zum Koffein aus dem Guarana.",
     "ing.lemon.name": "Zitronen­saft",
@@ -125,7 +125,7 @@ const translations = {
     "ing.guarana.name": "Guarana",
     "ing.guarana.text": "Es ist die Energiequelle von Gaïa. Seine Samen enthalten von Natur aus Koffein: Unsere Energie kommt aus einer Pflanze, nicht aus synthetischem Koffein.",
     "ing.aroma.name": "Pfirsich­aroma",
-    "ing.aroma.text": "Es verstärkt den Pfirsichduft, damit sein Geschmack auch neben den Bläschen und der Zitrone deutlich bleibt.",
+    "ing.aroma.text": "Es ergänzt den Sirup mit einem Hauch Duft, damit der Pfirsich auch neben den Bläschen und der Zitrone gut zur Geltung kommt.",
     "ing.allHint": "Hier tippen, um alle zu sehen",
     "ing.all": "Alle Kategorien",
     "ing.allClose": "Alle schliessen",
@@ -245,6 +245,25 @@ if ("IntersectionObserver" in window) {
 }
 window.addEventListener("scroll", () => setScrolled(window.scrollY > 40), { passive: true });
 setScrolled(window.scrollY > 40);
+
+// La barre se cache quand on descend et revient dès qu'on remonte un tout petit peu.
+// Les petits écarts sont cumulés dans le même sens pour ignorer les tremblements.
+const TOPBAR_DOWN = 10;
+const TOPBAR_UP = 12;
+let lastScrollY = Math.max(window.scrollY, 0);
+let scrollRun = 0;
+window.addEventListener("scroll", () => {
+  const y = Math.max(window.scrollY, 0); // rebond de Safari en haut de page
+  const delta = y - lastScrollY;
+  lastScrollY = y;
+  if (delta === 0) return;
+  scrollRun = Math.sign(delta) === Math.sign(scrollRun) ? scrollRun + delta : delta;
+  if (y <= topbar.offsetHeight) topbar.classList.remove("is-hidden");
+  else if (scrollRun >= TOPBAR_DOWN) topbar.classList.add("is-hidden");
+  else if (scrollRun <= -TOPBAR_UP) topbar.classList.remove("is-hidden");
+}, { passive: true });
+// Au clavier, la barre revient quand un de ses boutons reçoit le focus
+topbar.addEventListener("focusin", () => topbar.classList.remove("is-hidden"));
 
 // ---------- Fenêtres plein écran (menu, pop-up) ----------
 const menu = document.getElementById("menu");
