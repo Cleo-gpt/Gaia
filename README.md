@@ -4,8 +4,15 @@ Site de la boisson Gaïa (projet Fresh, CPNV Sainte-Croix).
 
 - `index.html` : la boisson, les ingrédients, la FAQ, la loi, Instagram
 - `projet.html` : le processus du projet et l'équipe
-- `styles.css`, `script.js` : style, traductions FR / EN / DE, interactions
+- `assets/css/styles.css` : style
+- `assets/js/main.js` : traductions FR / EN / DE, interactions
+- `assets/fonts/` : polices
+- `assets/img/marque/` : logos, favicon, curseur, QR code
+- `assets/img/equipe/` : portraits
+- `assets/instagram/` : images et liste des posts, écrites par le robot
 - `plugins/insta-grille/` : grille Instagram (repris de l'e-portfolio)
+- `plugins/bouteille-3d/` : bouteille 3D (`src/` pour la reconstruire, voir son `LISEZMOI.md`)
+- `scripts/` : robot Instagram, mise en place, publications épinglées
 
 ## Robot Instagram
 
@@ -59,7 +66,7 @@ site**. Rien n'est supprimé sur le serveur.
 ### Publications épinglées
 
 L'API d'Instagram ne dit pas quels posts sont épinglés. Colle leurs liens
-dans `instagram-epingles.json`, dans l'ordre du profil (3 au maximum) : le
+dans `scripts/instagram-epingles.json`, dans l'ordre du profil (3 au maximum) : le
 robot les place en tête de la grille à son prochain passage.
 
 ### En cas de problème

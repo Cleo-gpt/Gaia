@@ -5,9 +5,6 @@
 | Fichier | À quoi il sert |
 |---|---|
 | `gaia-bottle.js` | La bouteille interactive, prête à l'emploi (Three.js et étiquette inclus). C'est le fichier à mettre dans ton site. |
-| `exemple.html` | Exemple d'intégration avec des boutons. Ouvre-le dans le navigateur. |
-| `Gaia_Peche_interactive.html` | Page complète autonome (titre, boutons, infos), un seul fichier. |
-| `modele-3d/Gaia_Peche.glb` | Modèle 3D statique pour Blender, Windows 3D Viewer, etc. |
 | `src/` | Code source, si tu veux modifier la bouteille et la reconstruire. |
 
 ## Intégrer la bouteille dans ta page

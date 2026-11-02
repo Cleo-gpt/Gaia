@@ -442,12 +442,12 @@ if ("IntersectionObserver" in window && !reduceMotion) {
 // ---------- Instagram ----------
 // Même plugin que le portfolio (plugins/insta-grille) : fenêtre de 3 × 3 qui défile,
 // épinglés d'abord, avec la déesse de Gaïa comme curseur. Les posts sont téléchargés
-// toutes les heures par le robot GitHub (scripts/instagram-sync.mjs, voir README.md).
+// automatiquement par le robot GitHub (scripts/instagram-sync.mjs, voir README.md).
 if (window.InstaGrille && document.getElementById("gaiaPosts")) {
   InstaGrille.monter("#gaiaPosts", {
     posts: window.INSTA_POSTS || [],
     lignesVisibles: 3,
-    curseur: "assets/img/curseur-gaia.png",
+    curseur: "assets/img/marque/curseur.png",
   });
 }
 

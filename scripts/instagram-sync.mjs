@@ -1,7 +1,7 @@
 // instagram-sync.mjs — synchronise les publications Instagram avec le site.
 //
 // Site Gaïa — repris du robot de l'e-portfolio (La Lanterne de Yuna).
-// Lancé toutes les heures par GitHub Actions (.github/workflows/instagram.yml),
+// Lancé toutes les 15 minutes par GitHub Actions (.github/workflows/instagram.yml),
 // sans PHP ni service externe. Pour chaque compte de la liste COMPTES :
 //   1. lit son token Instagram (chiffré dans .github/) ;
 //   2. le renouvelle s'il a plus de 7 jours (il en dure 60) ;
@@ -37,7 +37,7 @@ const COMPTES = [
         images: 'assets/instagram',
         liste: 'assets/instagram/posts.js',
         variableListe: 'INSTA_POSTS',
-        epingles: 'instagram-epingles.json'
+        epingles: 'scripts/instagram-epingles.json'
     }
 ];
 

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gaïa – Natural Energy Drink</title>
   <meta name="description" content="Gaïa pêche : une boisson énergisante naturelle, vegan et faite main par des apprentis du CPNV à Sainte-Croix.">
-  <link rel="icon" type="image/png" href="assets/img/favicon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="assets/img/marque/favicon.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="plugins/insta-grille/insta-grille.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
   <header class="topbar" id="topbar">
     <div class="waves topbar-waves" aria-hidden="true"><svg viewBox="0 24 150 28" preserveAspectRatio="none"><defs><path id="wv3" d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18v44h-352z"/></defs><g><use href="#wv3" x="48" y="0"/><use href="#wv3" x="48" y="3"/><use href="#wv3" x="48" y="5"/><use href="#wv3" x="48" y="7"/></g></svg></div>
     <a href="index.html" class="topbar-logo" aria-label="Gaïa – accueil">
-      <img src="assets/img/logo.png" alt="Gaïa">
+      <img src="assets/img/marque/logo.png" alt="Gaïa">
     </a>
     <div class="topbar-tools">
       <div class="pill lang-switch" role="group" aria-label="Langue">
@@ -40,7 +40,7 @@
     <section class="hero textured" id="accueil">
       <div class="container hero-grid">
         <div class="hero-text">
-          <img class="hero-logo" src="assets/img/logo-slogan.png" alt="Gaïa – Natural Energy Drink">
+          <img class="hero-logo" src="assets/img/marque/logo-slogan.png" alt="Gaïa – Natural Energy Drink">
           <h1 data-i18n="hero.title">Nouveau : Gaïa pêche</h1>
           <p class="script" data-i18n="hero.script">Découvrez l'énergie naturelle</p>
           <p class="lead" data-i18n="hero.lead">Une boisson 100 % faite main au goût de pêche, naturelle et vegan.</p>
@@ -99,7 +99,7 @@
             <button type="button" class="ing-toggle" aria-expanded="false"><span class="when-closed" data-i18n="ing.more">Lire plus</span><span class="when-open" data-i18n="ing.less">Lire moins</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
           </article>
         </div>
-        <!-- Panneau de lecture : rempli par script.js avec le texte de la carte choisie -->
+        <!-- Panneau de lecture : rempli par assets/js/main.js avec le texte de la carte choisie -->
         <div class="ing-panel" id="ingPanel" hidden>
           <button type="button" class="ing-panel-close" aria-label="Fermer"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
           <div class="ing-panel-content"></div>
@@ -209,14 +209,14 @@
         </ul>
         <p>© 2026 Gaïa – <span data-i18n="footer.rights">Tous droits réservés</span></p>
       </div>
-      <img class="footer-logo" src="assets/img/logo-slogan.png" alt="Gaïa – Natural Energy Drink">
+      <img class="footer-logo" src="assets/img/marque/logo-slogan.png" alt="Gaïa – Natural Energy Drink">
     </div>
   </footer>
 
   <!-- ===== Menu plein écran ===== -->
   <div class="overlay textured" id="menu" hidden>
     <div class="overlay-top">
-      <img src="assets/img/logo.png" alt="Gaïa" class="overlay-logo">
+      <img src="assets/img/marque/logo.png" alt="Gaïa" class="overlay-logo">
       <button type="button" class="close" data-close aria-label="Fermer"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <h2 class="section-title center">Menu</h2>
@@ -234,7 +234,7 @@
   <!-- ===== Pop-up Instagram ===== -->
   <div class="overlay textured popup" id="instaPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
     <div class="overlay-top">
-      <img src="assets/img/logo.png" alt="Gaïa" class="overlay-logo">
+      <img src="assets/img/marque/logo.png" alt="Gaïa" class="overlay-logo">
       <button type="button" class="close" data-close aria-label="Fermer"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <div class="popup-grid">
@@ -246,7 +246,7 @@
       </div>
       <div class="popup-qr">
         <div class="qr-card">
-          <img src="assets/img/qr-insta.png" alt="QR code Instagram @gaia_ned">
+          <img src="assets/img/marque/qr-instagram.png" alt="QR code Instagram @gaia_ned">
           <span>GAIA_NED</span>
         </div>
         <p class="script" data-i18n="popup.scan">Scanne-moi !</p>
@@ -256,7 +256,7 @@
 
   <script src="plugins/insta-grille/insta-grille.js"></script>
   <script src="assets/instagram/posts.js"></script>
-  <script src="Gaia_3D/gaia-bottle.js"></script>
-  <script src="script.js"></script>
+  <script src="plugins/bouteille-3d/gaia-bottle.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
