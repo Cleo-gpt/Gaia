@@ -1,6 +1,6 @@
 name: Publications Instagram
 
-# Toutes les heures : récupère les publications Instagram de @gaia_ned,
+# Toutes les 15 minutes : récupère les publications Instagram de @gaia_ned,
 # enregistre leurs images dans assets/instagram/, met à jour
 # assets/instagram/posts.js, puis envoie ces fichiers sur le site par FTP
 # (si les accès FTP sont configurés).
@@ -8,7 +8,7 @@ name: Publications Instagram
 
 on:
   schedule:
-    - cron: '17 * * * *'   # toutes les heures, à la 17e minute
+    - cron: '7,22,37,52 * * * *'   # toutes les 15 minutes (GitHub peut prendre du retard)
   workflow_dispatch:       # bouton "Run workflow" pour lancer à la main
     inputs:
       tout_envoyer:

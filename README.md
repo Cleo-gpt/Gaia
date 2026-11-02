@@ -12,7 +12,7 @@ Site de la boisson Gaïa (projet Fresh, CPNV Sainte-Croix).
 Même fonctionnement que La Lanterne de Yuna sur l'e-portfolio :
 
 ```
-Instagram ──(API officielle, toutes les heures)──► robot GitHub Actions
+Instagram ──(API officielle, toutes les 15 min)──► robot GitHub Actions
                                                      │
           assets/instagram/*.jpg      ◄──────────────┤  télécharge les images
           assets/instagram/posts.js   ◄──────────────┤  réécrit la liste
@@ -21,7 +21,8 @@ Instagram ──(API officielle, toutes les heures)──► robot GitHub Action
 ```
 
 1. `.github/workflows/instagram.yml` lance `scripts/instagram-sync.mjs`
-   toutes les heures.
+   toutes les 15 minutes. GitHub ne garantit pas l'heure exacte : un passage
+   peut avoir du retard (bouton **Run workflow** pour forcer).
 2. Le script récupère toutes les publications de @gaia_ned, enregistre
    l'image de chaque nouvelle publication dans `assets/instagram/`, retire
    celles des posts supprimés et réécrit `assets/instagram/posts.js`.
