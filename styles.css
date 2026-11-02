@@ -152,13 +152,13 @@ p { margin: 0; }
 .waves-top use:nth-child(2), .waves-bottom use:nth-child(2) { opacity: 0.5; }
 .waves-top use:nth-child(3), .waves-bottom use:nth-child(3) { opacity: 0.3; }
 
-/* Liseré crème en haut de l'en-tête (vague retournée) */
-.topbar-waves { top: 0; height: 22px; opacity: 0; transition: opacity 0.25s ease; }
+/* Bord bas de la bande du menu : vague dorée (retournée) */
+.topbar-waves { top: 100%; margin-top: -1px; height: clamp(36px, 5vw, 64px); opacity: 0; transition: opacity 0.25s ease; }
 .topbar-waves svg { transform: scaleY(-1); }
-.topbar-waves use:nth-child(1) { fill: rgba(255, 205, 42, 0.5); }
-.topbar-waves use:nth-child(2) { fill: rgba(255, 205, 42, 0.5); }
-.topbar-waves use:nth-child(3) { fill: rgba(255, 205, 42, 0.7); }
-.topbar-waves use:nth-child(4) { fill: var(--bg-yellow); }
+.topbar-waves use { fill: var(--bg-gold); }
+.topbar-waves use:nth-child(1) { opacity: 0.7; }
+.topbar-waves use:nth-child(2) { opacity: 0.5; }
+.topbar-waves use:nth-child(3) { opacity: 0.3; }
 
 /* ---------- En-tête ---------- */
 /* Fixe en haut de l'écran : caché quand on descend, de retour quand on remonte. */
@@ -172,14 +172,14 @@ p { margin: 0; }
   gap: 12px;
   padding: 22px var(--gutter) 12px;
   /* Réapparition lente quand on remonte */
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 1s ease-in-out;
+  transition: background 0.25s ease, transform 1s ease-in-out;
 }
-/* Disparition quand on descend (24px de plus pour cacher aussi l'ombre) */
+/* Disparition quand on descend (72px de plus pour cacher aussi la vague) */
 .topbar.is-hidden {
-  transform: translateY(calc(-100% - 24px));
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 1s ease-in-out;
+  transform: translateY(calc(-100% - 72px));
+  transition: background 0.25s ease, transform 1s ease-in-out;
 }
-.topbar.scrolled { background: var(--bg-gold); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12); }
+.topbar.scrolled { background: var(--bg-gold); }
 .topbar.scrolled .topbar-waves { opacity: 1; }
 .topbar-logo img { height: 52px; width: auto; }
 .topbar:not(.scrolled) .topbar-logo { visibility: hidden; }
@@ -219,12 +219,11 @@ p { margin: 0; }
 /* ---------- Ingrédients ---------- */
 #ingredients { padding: 40px 0 80px; }
 .ing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  display: flex; flex-wrap: wrap; justify-content: center;
   gap: 18px;
-  align-items: start;
 }
 .ing-card {
+  flex: 0 1 calc(25% - 14px); /* 4 + 3 cartes, la 2e rangée centrée */
   display: flex; flex-direction: column; align-items: center;
   padding: 22px 14px 18px;
   border-radius: var(--radius);
@@ -525,7 +524,8 @@ p { margin: 0; }
   .lang-switch button svg { width: 22px; height: 15px; }
   .burger { width: 36px; height: 30px; }
   .burger span { height: 6px; }
-  .ing-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .ing-grid { gap: 12px; }
+  .ing-card { flex-basis: calc(50% - 6px); }
   .ing-card h3 { font-size: 1.2rem; }
   .ing-icon { width: 80px; height: 80px; padding: 15px; }
   .faq-item summary { padding: 20px 22px; font-size: 1.2rem; }
