@@ -383,6 +383,7 @@ p { margin: 0; }
   background: var(--white); color: var(--card-text); font-size: 1.15rem;
 }
 .doc-name { color: var(--red); font-family: var(--font-title); font-size: 1.3rem; }
+.doc-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .doc-link { padding: 6px 16px; border-radius: 999px; background: var(--red); color: var(--white); text-decoration: none; }
 .doc-link:hover { filter: brightness(1.1); }
 .doc-missing { opacity: 0.6; font-style: italic; }
