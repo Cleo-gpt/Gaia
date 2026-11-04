@@ -57,15 +57,15 @@
         <h2 class="section-title center" data-i18n="ing.title">Les ingrédients</h2>
         <div class="ing-grid">
           <article class="ing-card">
-            <h3 data-i18n="ing.guarana.name">Guarana (70 mg)</h3>
+            <h3 data-i18n="ing.guarana.name">Guarana (70 mg de caféine)</h3>
             <div class="ing-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 64 64"><path class="fill" d="M12 52C12 28 28 12 52 12c0 24-16 40-40 40z"/><path d="M12 52L40 24"/><path d="M24 40v-9M24 40h9M31 33v-8M31 33h8"/></svg></div>
-            <div class="ing-body"><p data-i18n="ing.guarana.text">C'est la source d'énergie de Gaïa. Ses graines contiennent naturellement de la caféine : notre énergie vient d'une plante, pas d'une caféine de synthèse.</p></div>
+            <div class="ing-body"><p data-i18n="ing.guarana.text">Cette poudre de Guarana est certifiée BIO par Ecocert (FR-BIO-01). Elle contient de la caféine à une haute teneur naturelle de 3,5 % en provenance du Brésil. La poudre de Guarana est connue pour tous ses bienfaits au quotidien.</p></div>
             <button type="button" class="ing-toggle" aria-expanded="false"><span class="when-closed" data-i18n="ing.more">Lire plus</span><span class="when-open" data-i18n="ing.less">Lire moins</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
           </article>
           <article class="ing-card">
             <h3 data-i18n="ing.aroma.name">Arôme pêche</h3>
             <div class="ing-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 64 64"><path class="fill" d="M32 20c-4-3-9-4-13-3C11 19 8 27 8 34c0 12 10 22 24 22s24-10 24-22c0-7-3-15-11-17-4-1-9 0-13 3z"/><path d="M32 20c-5 9-5 24 0 36"/><path d="M32 20c1-5 0-9-3-12"/><path class="fill" d="M33 14c3-6 10-8 16-6-2 6-9 9-16 6z"/></svg></div>
-            <div class="ing-body"><p data-i18n="ing.aroma.text">C'est lui qui donne à Gaïa son goût principal de pêche, celui qu'on reconnaît dès la première gorgée.</p></div>
+            <div class="ing-body"><p data-i18n="ing.aroma.text">La pêche blanche offre une saveur délicate, douce et florale, plus subtile que celle de la pêche jaune, qui est plus riche, sucrée et légèrement acidulée. La pêche blanche évoque une fraîcheur plus légère. En provenance de France.</p><p class="ing-composition" data-i18n="ing.aroma.composition">Ingrédients de l'arôme : propylène glycol, sucre inverti, eau, préparations aromatisantes, substances aromatisantes naturelles, conservateur : sorbate de potassium.</p></div>
             <button type="button" class="ing-toggle" aria-expanded="false"><span class="when-closed" data-i18n="ing.more">Lire plus</span><span class="when-open" data-i18n="ing.less">Lire moins</span><svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
           </article>
           <article class="ing-card">
@@ -105,10 +105,36 @@
           <div class="ing-panel-content"></div>
         </div>
 
+        <!-- Informations reprises de l'étiquette de la bouteille -->
+        <div class="ing-facts">
+          <div class="ing-facts-info">
+            <h3 data-i18n="ing.facts.title">Sur l'étiquette</h3>
+            <ul class="ing-badges">
+              <li data-i18n="ing.facts.caffeine">70 mg de caféine (guarana)</li>
+              <li data-i18n="ing.facts.allergy">Sans allergènes majeurs</li>
+              <li data-i18n="ing.facts.vegan">Vegan</li>
+            </ul>
+            <p data-i18n="ing.facts.warning">Déconseillé aux enfants et aux femmes enceintes ou allaitantes.</p>
+            <p data-i18n="ing.facts.serve">Agiter avant ouverture. Conserver et servir frais.</p>
+          </div>
+          <table class="ing-nutrition">
+            <thead><tr><th scope="col" data-i18n="ing.facts.nutrition">Valeurs nutritionnelles</th><th scope="col" data-i18n="ing.facts.per">pour 100 ml</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" data-i18n="ing.facts.energy">Énergie</th><td>31 kcal</td></tr>
+              <tr><th scope="row" data-i18n="ing.facts.carbs">Glucides</th><td>8 g</td></tr>
+              <tr class="sub"><th scope="row" data-i18n="ing.facts.sugars">dont sucres</th><td>5 g</td></tr>
+              <tr><th scope="row" data-i18n="ing.facts.protein">Protéines</th><td>1 g</td></tr>
+              <tr><th scope="row" data-i18n="ing.facts.fat">Lipides</th><td>0 g</td></tr>
+              <tr><th scope="row" data-i18n="ing.facts.salt">Sel</th><td>0 g</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="ing-footer">
           <div class="ing-all">
             <p data-i18n="ing.allHint">Pour tous les voir, tape ici</p>
             <button type="button" class="btn" id="ingAll" data-i18n="ing.all">Toutes les catégories</button>
+            <p class="ing-legal"><span data-i18n="ing.legalHint">Pour tout renseignement complémentaire, consultez les</span> <a href="mentions-legales.html" data-i18n="ing.legalLink">mentions légales</a>.</p>
           </div>
           <!-- À remplacer par la mascotte -->
           <div class="placeholder placeholder-mascot"><span>Mascotte</span></div>
@@ -203,7 +229,7 @@
     <div class="footer-bottom container">
       <div>
         <ul class="legal">
-          <li><a href="https://www.blv.admin.ch/dam/fr/sd-web/UJGDYXsyh47S/erlaeuterung-verordnung-getraenke-2017-fr.pdf" target="_blank" rel="noopener" data-i18n="footer.legal">Mentions légales</a></li>
+          <li><a href="mentions-legales.html" data-i18n="footer.legal">Mentions légales</a></li>
           <li><a href="#" data-i18n="footer.terms">CGU</a></li>
           <li><a href="#" data-i18n="footer.privacy">Politique de confidentialité</a></li>
         </ul>

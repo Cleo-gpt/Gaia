@@ -284,6 +284,7 @@ p { margin: 0; }
 .ing-panel.all .ing-entry h3 { font-size: 1.6rem; padding-right: 0; }
 .ing-entry p { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.55; max-width: 62ch; }
 .ing-panel.all .ing-entry p { font-size: 1.1rem; }
+.ing-entry .ing-composition { margin-top: 12px; font-size: 0.95rem; opacity: 0.8; }
 @media (max-width: 560px) {
   .ing-entry { grid-template-columns: 1fr; justify-items: center; text-align: center; }
   .ing-entry .ing-icon { width: 100px; height: 100px; padding: 20px; }
@@ -303,6 +304,21 @@ p { margin: 0; }
 .ing-toggle .when-open, .ing-card.open .ing-toggle .when-closed { display: none; }
 .ing-card.open .ing-toggle .when-open { display: inline; }
 
+.ing-facts {
+  display: grid; grid-template-columns: 1fr auto; gap: clamp(24px, 5vw, 60px); align-items: center;
+  margin-top: 26px; padding: clamp(24px, 4vw, 40px) clamp(22px, 5vw, 56px);
+  border-radius: var(--radius); background: var(--white); color: var(--card-text);
+}
+.ing-facts h3 { color: var(--red); font-size: 1.8rem; margin-bottom: 14px; }
+.ing-facts p { font-size: 1.1rem; margin-top: 8px; }
+.ing-badges { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 6px; }
+.ing-badges li { padding: 5px 14px; border-radius: 999px; background: var(--red); color: var(--white); font-size: 1rem; }
+.ing-nutrition { border-collapse: collapse; min-width: 260px; font-size: 1.05rem; }
+.ing-nutrition th, .ing-nutrition td { padding: 5px 12px; border: 2px solid var(--red); text-align: left; font-weight: 400; }
+.ing-nutrition thead th { color: var(--white); background: var(--red); }
+.ing-nutrition td { text-align: right; white-space: nowrap; }
+.ing-nutrition .sub th { padding-left: 26px; }
+@media (max-width: 700px) { .ing-facts { grid-template-columns: 1fr; } .ing-nutrition { width: 100%; } }
 .ing-footer { display: flex; align-items: center; justify-content: center; gap: clamp(30px, 8vw, 120px); margin-top: 60px; flex-wrap: wrap; }
 .ing-all { text-align: center; }
 .ing-all p { font-size: 1.4rem; margin-bottom: 16px; }
@@ -352,6 +368,26 @@ p { margin: 0; }
   font-size: 0.8em;
 }
 .step-body p { max-width: 34em; font-size: clamp(1.05rem, 1.4vw, 1.3rem); }
+
+/* ---------- Mentions légales ---------- */
+.legal-page { padding: 60px 0 200px; background: var(--bg-gold); }
+.legal-page .container { width: min(900px, 100% - 2 * var(--gutter)); }
+.legal-page h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 40px 0 16px; }
+.legal-page h2:first-child { margin-top: 0; }
+.legal-page p { font-size: 1.2rem; }
+.legal-page p a { font-weight: 700; }
+.doc-list { display: grid; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.doc-list li {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 16px 24px; border-radius: 18px;
+  background: var(--white); color: var(--card-text); font-size: 1.15rem;
+}
+.doc-name { color: var(--red); font-family: var(--font-title); font-size: 1.3rem; }
+.doc-link { padding: 6px 16px; border-radius: 999px; background: var(--red); color: var(--white); text-decoration: none; }
+.doc-link:hover { filter: brightness(1.1); }
+.doc-missing { opacity: 0.6; font-style: italic; }
+.ing-legal { max-width: 30ch; margin: 22px auto 0; font-size: 1.1rem; }
+.ing-legal a { font-weight: 700; }
 
 /* ---------- FAQ ---------- */
 #faq { position: relative; padding: 150px 0 170px; }
