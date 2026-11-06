@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18362629537221878.jpg",
+        "lien": "https://www.instagram.com/p/DfZ0er1iBGH/",
+        "legende": "Novembre a vidé l’équipe ? 😮‍💨 Une gorgée de Gaïa ça repart à fond ! ⚡ 👉 Viens goûter Gaïa aux portes ouvertes ! 🍑 #Gaïa #EnergyDrink #portesouvertes",
+        "type": "carrousel",
+        "date": "2026-11-06T14:27:30+0000"
+    },
+    {
         "image": "assets/instagram/18120049454514540.jpg",
         "lien": "https://www.instagram.com/p/DfO_CmVIs75/",
         "legende": "Gaïa s'installe aux Portes Ouvertes du CPNV ! 🍑🌴 Viens découvrir notre boisson énergisante naturelle, produite en Suisse, et passe nous voir au stand. 📅 Vendredi 27 novembre, 17h-20h 📅 Samedi 28 n",
