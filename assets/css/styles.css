@@ -13,7 +13,7 @@
 
   /* Fonds unis (palette de l'équipe) */
   --bg-red: #fd3400;
-  --bg-header: #e8a010;
+  --bg-header: var(--bg-gold);   /* même jaune doré que les sections */
   --bg-gold: #f9b022;   /* entre l'orange #f3931b et le jaune #ffcd2a */
   --white: #ffffff;
   --card-text: #2a1a14;
@@ -127,7 +127,7 @@ p { margin: 0; }
 }
 
 /* Bas de l'accueil : jaune puis doré, vers la section ingrédients */
-.hero-waves { bottom: 0; height: clamp(70px, 11vw, 150px); }
+.hero-waves { bottom: -1px; /* recouvre le joint avec la section ingrédients */ height: clamp(70px, 11vw, 150px); }
 .hero-waves use:nth-child(1) { fill: rgba(255, 205, 42, 0.7); }
 .hero-waves use:nth-child(2) { fill: rgba(255, 205, 42, 0.5); }
 .hero-waves use:nth-child(3) { fill: rgba(249, 176, 34, 0.6); }
@@ -219,6 +219,7 @@ p { margin: 0; }
 
 /* ---------- Ingrédients ---------- */
 #ingredients { padding: 40px 0 80px; }
+.ing-intro { margin: -1.2rem 0 28px; font-size: 1.2rem; }
 .ing-grid {
   display: flex; flex-wrap: wrap; justify-content: center;
   gap: 18px;
@@ -354,6 +355,8 @@ p { margin: 0; }
 .step-body h2 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: clamp(1.5rem, 2.3vw, 2.4rem); }
 /* Une étape sur deux : texte à gauche, image à droite */
 .step-red { grid-template-columns: 3fr 7fr; }
+/* Affiche des portes ouvertes : cadrée un peu plus bas pour montrer le titre */
+.step-media img.step-img-infos { object-position: center 85%; }
 .step-red .step-media { order: 2; }
 .step-red .step-media img {
   -webkit-mask-image: linear-gradient(to left, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
