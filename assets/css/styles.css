@@ -343,8 +343,20 @@ p { margin: 0; }
 .step-body h2 { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; font-size: clamp(1.5rem, 2.3vw, 2.4rem); }
 /* Une étape sur deux : texte à gauche, image à droite */
 .step-red { grid-template-columns: 3fr 7fr; }
-/* Affiche des portes ouvertes : cadrée un peu plus bas pour montrer le titre */
-.step-media img.step-img-infos { object-position: center 95%; }
+/* Affiche des portes ouvertes : montrée en entier, sans recadrage ni fondu */
+.step-media:has(.step-img-infos) {
+  display: grid; place-items: center;
+  padding: clamp(80px, 8vw, 120px) clamp(20px, 3vw, 48px);
+}
+.step-media img.step-img-infos {
+  position: static;
+  width: auto; height: auto;
+  max-width: 100%; max-height: min(80vh, 760px);
+  object-fit: contain;
+  -webkit-mask-image: none; mask-image: none;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(40, 10, 0, .35);
+}
 .step-red .step-media { order: 2; }
 .step-red .step-media img {
   -webkit-mask-image: linear-gradient(to left, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
@@ -584,6 +596,8 @@ p { margin: 0; }
     mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
   }
   .step-red .step-media span { left: 50%; }
+  .step-media:has(.step-img-infos) { height: auto; padding: 70px var(--gutter) 10px; }
+  .step-media img.step-img-infos { max-height: 70vh; }
   .step-red .step-body { padding: 20px var(--gutter) 90px; }
   .footer-art { display: none; }
   .person-grid, .person:nth-of-type(odd) .person-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
