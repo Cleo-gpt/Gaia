@@ -14,6 +14,7 @@
   /* Fonds unis (palette de l'équipe) */
   --bg-red: #fd3400;
   --bg-header: var(--bg-gold);   /* même jaune doré que les sections */
+  --bg-orange: #f3931b;
   --bg-gold: #f9b022;   /* entre l'orange #f3931b et le jaune #ffcd2a */
   --white: #ffffff;
   --card-text: #2a1a14;
@@ -63,14 +64,16 @@ p { margin: 0; }
 /* Texture fixe derrière une longue zone (équipe) : l'image garde la taille
    de l'écran au lieu d'être étirée sur toute la hauteur, donc elle reste nette.
    Le clip-path limite le calque fixe à la zone (fonctionne aussi sur iPhone). */
-.texture-fixed { position: relative; clip-path: inset(0); background: var(--red); }
-.texture-fixed::before {
+.team-bg { position: relative; clip-path: inset(0); background: var(--bg-orange); }
+/* Grande spirale fixe à 30 % derrière la présentation de l'équipe */
+.team-bg::before {
   content: "";
   position: fixed; inset: 0; z-index: 0;
-  background: url("../img/texture-peche.jpg") center / cover no-repeat;
+  background: url("../img/marque/spirale.png") center / min(90vmin, 900px) no-repeat;
+  opacity: 0.3;
   pointer-events: none;
 }
-.texture-fixed > * { position: relative; z-index: 1; }
+.team-bg > * { position: relative; z-index: 1; }
 
 /* Boutons « pilule » blancs */
 .btn {
@@ -96,20 +99,6 @@ p { margin: 0; }
 .bottle-menu { max-width: 420px; height: min(560px, 62vh); }
 .bottle-footer { max-width: 300px; height: 170px; }
 
-/* Emplacements à remplacer (mascotte) */
-.placeholder {
-  display: grid;
-  place-items: center;
-  border: 3px dashed currentColor;
-  color: var(--white);
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  text-align: center;
-  opacity: 0.9;
-}
-.placeholder span { writing-mode: vertical-rl; transform: rotate(180deg); }
-.placeholder-mascot { width: 200px; aspect-ratio: 2 / 3; }
-.placeholder-small { width: 120px; aspect-ratio: 1 / 2; font-size: 1.1rem; }
 
 /* ---------- Vagues animées ---------- */
 /* Quatre couches de la même vague, plus ou moins transparentes,
@@ -356,7 +345,7 @@ p { margin: 0; }
 /* Une étape sur deux : texte à gauche, image à droite */
 .step-red { grid-template-columns: 3fr 7fr; }
 /* Affiche des portes ouvertes : cadrée un peu plus bas pour montrer le titre */
-.step-media img.step-img-infos { object-position: center 85%; }
+.step-media img.step-img-infos { object-position: center 95%; }
 .step-red .step-media { order: 2; }
 .step-red .step-media img {
   -webkit-mask-image: linear-gradient(to left, #000 45%, transparent 100%), linear-gradient(to bottom, #000 78%, transparent 100%);
