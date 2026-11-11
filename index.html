@@ -130,7 +130,7 @@
             <tbody>
               <tr><th scope="row" data-i18n="ing.facts.energy">Énergie</th><td>31 kcal</td></tr>
               <tr><th scope="row" data-i18n="ing.facts.carbs">Glucides</th><td>8 g</td></tr>
-              <tr class="sub"><th scope="row" data-i18n="ing.facts.sugars">dont sucres</th><td>5 g</td></tr>
+              <tr><th scope="row" data-i18n="ing.facts.sugars">Dont sucres</th><td>5 g</td></tr>
               <tr><th scope="row" data-i18n="ing.facts.protein">Protéines</th><td>1 g</td></tr>
               <tr><th scope="row" data-i18n="ing.facts.fat">Lipides</th><td>0 g</td></tr>
               <tr><th scope="row" data-i18n="ing.facts.salt">Sel</th><td>0 g</td></tr>
@@ -275,24 +275,15 @@
   </div>
 
   <!-- ===== Pop-up Instagram ===== -->
-  <div class="overlay textured popup" id="instaPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
-    <div class="overlay-top">
-      <img src="assets/img/marque/logo.png" alt="Gaïa" class="overlay-logo">
-      <button type="button" class="close" data-close aria-label="Fermer"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    </div>
-    <div class="popup-grid">
-      <div>
+  <!-- Pop-up Instagram : petite fenêtre centrée sur un fond assombri -->
+  <div class="overlay popup" id="instaPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
+    <div class="popup-card textured">
+      <button type="button" class="close popup-close" data-close aria-label="Fermer"><svg class="icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <div class="popup-text">
         <h2 id="popupTitle" class="popup-title" data-i18n="popup.title">Rejoins-nous</h2>
         <p class="script popup-script" data-i18n="popup.script">sur Insta !</p>
         <p class="lead" data-i18n="popup.text">Suis @gaia_ned pour ne rien rater des nouveautés Gaïa, des coulisses de la marque et de nos prochains concours.</p>
-        <a class="btn" href="https://www.instagram.com/gaia_ned/" target="_blank" rel="noopener" data-i18n="popup.cta">Suivre @gaia_ned</a>
-      </div>
-      <div class="popup-qr">
-        <div class="qr-card">
-          <img src="assets/img/marque/qr-instagram.png" alt="QR code Instagram @gaia_ned">
-          <span>GAIA_NED</span>
-        </div>
-        <p class="script" data-i18n="popup.scan">Scanne-moi !</p>
+        <a class="btn popup-btn" href="https://www.instagram.com/gaia_ned/" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.6"/></svg><span data-i18n="popup.cta">Suivre @gaia_ned</span></a>
       </div>
     </div>
   </div>

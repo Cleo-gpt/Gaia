@@ -51,7 +51,7 @@ p { margin: 0; }
 /* Les lettres de Caveat dépassent de leur boîte : sans cette marge, Safari
    les coupe pendant l'animation d'apparition. */
 .script { padding: 0.06em 0.3em 0.1em 0; }
-.popup-qr .script, .center .script { padding-left: 0.3em; }
+.popup-script, .center .script { padding-left: 0.3em; }
 .lead { font-size: clamp(1.15rem, 2vw, 1.5rem); }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -307,7 +307,6 @@ p { margin: 0; }
 .ing-nutrition th, .ing-nutrition td { padding: 5px 12px; border: 2px solid var(--red); text-align: left; font-weight: 400; }
 .ing-nutrition thead th { color: var(--white); background: var(--red); }
 .ing-nutrition td { text-align: right; white-space: nowrap; }
-.ing-nutrition .sub th { padding-left: 26px; }
 @media (max-width: 700px) { .ing-facts { grid-template-columns: 1fr; } .ing-nutrition { width: 100%; } }
 .ing-footer { display: flex; align-items: center; justify-content: center; gap: clamp(30px, 8vw, 120px); margin-top: 60px; flex-wrap: wrap; }
 .ing-all { text-align: center; }
@@ -540,26 +539,32 @@ p { margin: 0; }
 }
 .menu-links a:hover { transform: translateX(-6px); }
 
-.popup-grid {
-  display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: center;
-  width: min(1100px, 100%); margin: 6vh auto 0;
+/* Pop-up Instagram : carte centrée, le fond de la page reste visible derrière */
+.popup { display: grid; place-items: center; background: rgba(40, 10, 0, 0.55); }
+.popup[hidden] { display: none; }
+.popup-card {
+  position: relative;
+  width: min(460px, 100%);
+  padding: 44px 36px 36px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(40, 10, 0, 0.45);
+  animation: popup-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.popup-title { font-size: clamp(2.6rem, 6vw, 4.4rem); }
-.popup-script { font-size: clamp(2.2rem, 5vw, 3.6rem); margin: 4px 0 28px 0.3em; }
-.popup .lead { max-width: 34ch; margin-bottom: 40px; }
-.popup-qr { display: grid; justify-items: center; gap: 18px; }
-.qr-card {
-  display: grid; justify-items: center; gap: 10px;
-  padding: 28px 28px 20px; border-radius: 32px;
-  background: var(--bg-red);
-}
-.qr-card img { width: min(280px, 60vw); }
-.qr-card span { font-family: "Arial Narrow", sans-serif; font-weight: 700; font-size: 2rem; }
-.popup-qr .script { font-size: 2.4rem; }
+@keyframes popup-in { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: none; } }
+.popup-close { position: absolute; top: 14px; right: 14px; width: 42px; height: 42px; }
+.popup-close .icon-x { width: 18px; height: 18px; }
+.popup-title { font-size: clamp(2rem, 4vw, 2.8rem); }
+.popup-script { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin: 0 0 14px; }
+.popup .lead { font-size: 1.1rem; max-width: 30ch; margin: 0 auto 24px; }
+.popup .btn { font-size: 1.1rem; }
+.popup-btn { display: inline-flex; align-items: center; gap: 10px; }
+.popup-btn .icon { width: 24px; height: 24px; stroke-width: 2; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .hero-grid, .faq-grid, .menu-grid, .popup-grid, .footer-inner { grid-template-columns: 1fr; }
+  .hero-grid, .faq-grid, .menu-grid, .footer-inner { grid-template-columns: 1fr; }
+  .popup-card { padding: 48px 24px 28px; }
   .hero .lead { margin-bottom: 36px; }
   .bottle-hero { height: 440px; }
   .bottle-faq { height: 400px; }

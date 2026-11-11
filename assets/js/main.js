@@ -53,7 +53,7 @@ const translations = {
     "ing.facts.per": "per 100 ml",
     "ing.facts.energy": "Energy",
     "ing.facts.carbs": "Carbohydrates",
-    "ing.facts.sugars": "of which sugars",
+    "ing.facts.sugars": "Of which sugars",
     "ing.facts.protein": "Protein",
     "ing.facts.fat": "Fat",
     "ing.facts.salt": "Salt",
@@ -142,7 +142,6 @@ const translations = {
     "popup.script": "on Insta!",
     "popup.text": "Follow @gaia_ned so you don't miss any Gaïa news, behind-the-scenes content or our upcoming contests.",
     "popup.cta": "Follow @gaia_ned",
-    "popup.scan": "Scan me!",
   },
 
   de: {
@@ -183,7 +182,7 @@ const translations = {
     "ing.facts.per": "pro 100 ml",
     "ing.facts.energy": "Energie",
     "ing.facts.carbs": "Kohlenhydrate",
-    "ing.facts.sugars": "davon Zucker",
+    "ing.facts.sugars": "Davon Zucker",
     "ing.facts.protein": "Eiweiss",
     "ing.facts.fat": "Fett",
     "ing.facts.salt": "Salz",
@@ -272,7 +271,6 @@ const translations = {
     "popup.script": "auf Insta!",
     "popup.text": "Folge @gaia_ned und verpasse keine Neuigkeiten von Gaïa, keine Blicke hinter die Kulissen und keine unserer nächsten Wettbewerbe.",
     "popup.cta": "@gaia_ned folgen",
-    "popup.scan": "Scan mich!",
   },
 };
 
@@ -390,6 +388,9 @@ document.querySelectorAll(".overlay").forEach((overlay) => {
 menu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => closeOverlay(menu));
 });
+
+// Un clic sur le fond assombri autour du pop-up le ferme
+if (popup) popup.addEventListener("click", (e) => { if (e.target === popup) closeOverlay(popup); });
 
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
