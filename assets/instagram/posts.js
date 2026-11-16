@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18115873814168440.jpg",
+        "lien": "https://www.instagram.com/p/DfzKpSBIAmV/",
+        "legende": "🚨 Le site web de Gaïa est enfin en ligne ! 🍑✨ Envie de tout savoir sur notre boisson énergisante naturelle au goût pêche ? C’est le moment d’aller y jeter un œil ! 👉 Rendez-vous dès maintenant sur ",
+        "type": "image",
+        "date": "2026-11-16T10:45:12+0000"
+    },
+    {
         "image": "assets/instagram/18362629537221878.jpg",
         "lien": "https://www.instagram.com/p/DfZ0er1iBGH/",
         "legende": "Novembre a vidé l’équipe ? 😮‍💨 Une gorgée de Gaïa ça repart à fond ! ⚡ 👉 Viens goûter Gaïa aux portes ouvertes ! 🍑 #Gaïa #EnergyDrink #portesouvertes",
