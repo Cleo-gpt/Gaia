@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18353295595265870.jpg",
+        "lien": "https://www.instagram.com/reel/Df7H0AbIQyZ/",
+        "legende": "Les cours, le boulot, les soirées trop courtes… 📚💼🌙 À force, l’énergie part et ne revient plus. Tu mérites mieux qu’un coup de boost qui ne tient pas. Gaïa 🍑, fraîche et fruitée, pour souffler un ",
+        "type": "video",
+        "date": "2026-11-19T13:06:01+0000"
+    },
+    {
         "image": "assets/instagram/18115873814168440.jpg",
         "lien": "https://www.instagram.com/p/DfzKpSBIAmV/",
         "legende": "🚨 Le site web de Gaïa est enfin en ligne ! 🍑✨ Envie de tout savoir sur notre boisson énergisante naturelle au goût pêche ? C’est le moment d’aller y jeter un œil ! 👉 Rendez-vous dès maintenant sur ",
