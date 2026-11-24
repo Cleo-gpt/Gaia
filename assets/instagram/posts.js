@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18114311432164364.jpg",
+        "lien": "https://www.instagram.com/p/DgII3H1CKib/",
+        "legende": "Un petit bout de colle pour vous, un grand pas pour Gaïa... 🍑 Les étiquettes ont été imprimées et collées avec succès 🎉 Retrouvez les aux portes ouvertes de Sainte Croix le 27 et 28 novembre 2026. #",
+        "type": "carrousel",
+        "date": "2026-11-24T14:10:40+0000"
+    },
+    {
         "image": "assets/instagram/18353295595265870.jpg",
         "lien": "https://www.instagram.com/reel/Df7H0AbIQyZ/",
         "legende": "Les cours, le boulot, les soirées trop courtes… 📚💼🌙 À force, l’énergie part et ne revient plus. Tu mérites mieux qu’un coup de boost qui ne tient pas. Gaïa 🍑, fraîche et fruitée, pour souffler un ",
