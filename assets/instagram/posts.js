@@ -2,6 +2,13 @@
 // Ne pas modifier à la main : il est réécrit à chaque nouvelle publication Instagram.
 window.INSTA_POSTS = [
     {
+        "image": "assets/instagram/18141460990637206.jpg",
+        "lien": "https://www.instagram.com/p/DgNTE4viAlU/",
+        "legende": "La signalétique de Gaïa est prête ✨ On vous attend vendredi 27 et samedi 28 novembre au CPNV de Sainte-Croix 🍑 #Gaia #Signaletique #RollUp #Affiche #CPNV",
+        "type": "carrousel",
+        "date": "2026-11-26T14:16:07+0000"
+    },
+    {
         "image": "assets/instagram/18114311432164364.jpg",
         "lien": "https://www.instagram.com/p/DgII3H1CKib/",
         "legende": "Un petit bout de colle pour vous, un grand pas pour Gaïa... 🍑 Les étiquettes ont été imprimées et collées avec succès 🎉 Retrouvez les aux portes ouvertes de Sainte Croix le 27 et 28 novembre 2026. #",
